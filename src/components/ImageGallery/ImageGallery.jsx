@@ -1,12 +1,13 @@
+import React, { Component } from 'react';
 import propTypes from 'prop-types';
 import s from './ImageGallery.module.css';
 import ImageGalleryItem from 'components/ImageGalleryItem';
 
-function ImageGallery(openModal) {
+export function ImageGallery({ images, openModal }) {
   return (
     <>
       <ul className={s.ImageGallery}>
-        {this.props.images.map((image, id) => (
+        {images.map((image, id) => (
           <ImageGalleryItem key={id} image={image} openModal={openModal} />
         ))}
       </ul>

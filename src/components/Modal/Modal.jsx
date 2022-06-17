@@ -3,27 +3,27 @@ import { createPortal } from 'react-dom';
 import propTypes from 'prop-types';
 import s from './Modal.module.css';
 
-function Modal(onClose, img) {
-  const modal = document.querySelector('#modal-root');
+const modal = document.querySelector('#modal-root');
 
-  const onEsc = e => {
-    if (e.code === 'Escape') {
-      this.props.onClose(false);
-    }
-  };
+export default function Modal({ onClose, img }) {
   const onOverlay = e => {
     if (e.target === e.currentTarget) {
       onClose(false);
     }
   };
-
   useEffect(() => {
+    const onEsc = e => {
+      if (e.code === 'Escape') {
+        onClose(null);
+      }
+    };
+
     window.addEventListener('keydown', onEsc);
     return () => {
       window.removeEventListener('keydown', onEsc);
     };
-  }),
-    [];
+  }, [onClose]);
+
   return createPortal(
     <div className={s.Overlay} onClick={onOverlay}>
       <div className={s.Modal}>

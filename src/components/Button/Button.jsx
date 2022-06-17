@@ -1,14 +1,14 @@
 import s from './Button.module.css';
 import propTypes from 'prop-types';
 
-function Button(onClick) {
-  onClick = event => {
+export default function Button({ onClick, page }) {
+  const handeClick = event => {
     event.preventDefault();
     const updatedPage = page + 1;
-    this.props.onClick(updatedPage);
+    onClick(updatedPage);
   };
   return (
-    <button className={s.moreBtn} type="button" onClick={onClick}>
+    <button className={s.moreBtn} type="button" onClick={handeClick}>
       Load More
     </button>
   );
@@ -16,4 +16,5 @@ function Button(onClick) {
 
 Button.propTypes = {
   onClick: propTypes.func.isRequired,
+  page: propTypes.number.isRequired,
 };

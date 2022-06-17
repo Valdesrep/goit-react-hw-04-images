@@ -1,7 +1,7 @@
 import propTypes from 'prop-types';
 import s from './ImageGalleryItem.module.css';
 
-function ImageGalleryItem(image, openModal) {
+export function ImageGalleryItem({ image, openModal }) {
   return (
     <li className={s.ImageGalleryItem}>
       <img
