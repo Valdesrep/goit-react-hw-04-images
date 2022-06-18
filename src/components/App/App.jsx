@@ -63,7 +63,7 @@ export function App() {
 
   return (
     <div className={s.App}>
-      <Searchbar onSubmit={getImage} />;
+      <Searchbar onSubmit={getImage} />
       {imagesInGallery.length > 0 && status && (
         <ImageGallery images={imagesInGallery} openModal={onModalOpen} />
       )}
