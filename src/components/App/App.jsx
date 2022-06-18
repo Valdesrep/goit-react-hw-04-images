@@ -26,6 +26,7 @@ export function App() {
       if (image.trim()) {
         try {
           setStatus('pending');
+          Notiflix.Loading.circle('Please wait ...');
 
           const imagesToGallery = await fetchImage(image, page);
 
@@ -55,18 +56,18 @@ export function App() {
   const onModalOpen = imgInModal => {
     setImgInModal(imgInModal);
   };
-
+  const onLoadMore = () => {
+    setPege(prevState => prevState + 1);
+  };
   const isVisible = imagesInGallery.length > 0;
-  if (status === 'pending') {
-    return Notiflix.Loading.circle('Please wait ...');
-  }
+
   return (
     <div className={s.App}>
       <Searchbar onSubmit={getImage} />;
       {imagesInGallery.length > 0 && (
         <ImageGallery images={imagesInGallery} openModal={onModalOpen} />
       )}
-      {isVisible && <Button onClick={setPege} page={page} />}
+      {isVisible && <Button onClick={onLoadMore} page={page} />}
       {imgInModal && <Modal onClose={setImgInModal} img={imgInModal} />},
     </div>
   );

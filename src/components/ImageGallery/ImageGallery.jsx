@@ -6,8 +6,12 @@ export function ImageGallery({ images, openModal }) {
   return (
     <>
       <ul className={s.ImageGallery}>
-        {images.map((image, id) => (
-          <ImageGalleryItem key={id} image={image} openModal={openModal} />
+        {images.map(image => (
+          <ImageGalleryItem
+            key={image.id}
+            image={image}
+            openModal={openModal}
+          />
         ))}
       </ul>
     </>
