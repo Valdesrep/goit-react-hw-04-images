@@ -68,7 +68,7 @@ export function App() {
         <ImageGallery images={imagesInGallery} openModal={onModalOpen} />
       )}
       {isVisible && <Button onClick={onLoadMore} page={page} />}
-      {imgInModal && <Modal onClose={setImgInModal} img={imgInModal} />},
+      {imgInModal && <Modal onClose={setImgInModal} img={imgInModal} />}
     </div>
   );
 }
