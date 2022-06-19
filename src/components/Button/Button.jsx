@@ -2,8 +2,7 @@ import s from './Button.module.css';
 import propTypes from 'prop-types';
 
 export default function Button({ onClick }) {
-  const handeClick = event => {
-    event.preventDefault();
+  const handeClick = () => {
     onClick();
   };
   return (
